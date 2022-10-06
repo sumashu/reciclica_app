@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  selector: 'app-pickup-call',
+  templateUrl: './pickup-call.page.html',
+  styleUrls: ['./pickup-call.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class PickupCallPage implements OnInit {
 
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
-  register(){
+  newPickupCall(){
     this.router.navigate(['/home'])
   }
+
 }
