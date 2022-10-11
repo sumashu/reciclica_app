@@ -21,8 +21,8 @@
           </ion-item>
           <app-error-message  [field]="form.get('password')" error="required" message="password is required"></app-error-message>
            
-          <ion-button color="dark" fill="clear" size="full" [disabled] = "!form.get('email').valid">Forgot emai/password</ion-button>
-          <ion-button color="success" size="full" (click)="login()" [disabled] = '!form.valid'>Login</ion-button>
+          <ion-button color="dark" fill="clear" size="full" [disabled] = "!form.get('email').valid" (click)="forgotEmailPassword()" id="recoverPasswordButton">Forgot emai/password</ion-button>
+          <ion-button color="success" size="full" (click)="login()" [disabled] = '!form.valid' id="loginButton">Login</ion-button>
           <ion-button color="success" fill="clear" size="full" (click)="register()">Register</ion-button>
   
         </ion-card-content>

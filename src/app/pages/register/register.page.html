@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+<form [formGroup]="registerFrom.getForm()">
   <ion-card>
     <ion-card-header>
       <ion-card-title>What do you want to do with the recyclable waste ?</ion-card-title>
@@ -35,24 +36,31 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Name</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('name')" error="required" message="name is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('email')" error="required" message="email is mandatroy"></app-error-message>
+      <app-error-message  [field]="registerFrom.getForm().get('email')" error="email" message="email is invalid"></app-error-message>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="Password"></ion-input>
+        <ion-input type="Password" formControlName="password"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('password')" error="required" message="password is mandatroy"></app-error-message>
+      <app-error-message  [field]="registerFrom.getForm().get('password')" error="minlength" message="password is minimum length 6"></app-error-message>
       <ion-item>
         <ion-label position="floating">Confirm Password</ion-label>
-        <ion-input type="Password"></ion-input>
+        <ion-input type="Password" formControlName="repeatPassword"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('repeatPassword')" error="isntMatching" message="confirm Password should match password"></app-error-message>
       <ion-item>
         <ion-label position="floating">Phone number</ion-label>
-        <ion-input type="tel"></ion-input>
+        <ion-input type="tel" formControlName="phone"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('phone')" error="required" message="password is mandatroy"></app-error-message>
     </ion-card-content>
   </ion-card>
 
@@ -60,38 +68,45 @@
     <ion-card-header>
       <ion-card-title>Address Information</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content formGroupName="address">
       <ion-item>
         <ion-label position="floating">Address</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+        <ion-input type="text" formControlName="street"></ion-input>
+       </ion-item>
+       <app-error-message  [field]="registerFrom.getForm().get('address').get('street')" error="required" message="Address is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">Number</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number" formControlName="number"></ion-input>
       </ion-item>
+     <app-error-message  [field]="registerFrom.getForm().get('address').get('number')" error="required" message="number is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">Neighborhood</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="neighborhood"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Zip code</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('address').get('neighborhood')" error="required" message="neighborhood is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">Complement</ion-label>
-        <ion-input type="tel"></ion-input>
+        <ion-input type="tel" formControlName="complement"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('address').get('complement')" error="required" message="complement is mandatroy"></app-error-message>
+      <ion-item>
+        <ion-label position="floating">Zip code</ion-label>
+        <ion-input type="text" formControlName="zipCode"></ion-input>
+      </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('address').get('zipCode')" error="required" message="field is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">State</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="state"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('address').get('state')" error="required" message="field is mandatroy"></app-error-message>
       <ion-item>
         <ion-label position="floating">City</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="city"></ion-input>
       </ion-item>
+      <app-error-message  [field]="registerFrom.getForm().get('address').get('city')" error="required" message="field is mandatroy"></app-error-message>
     </ion-card-content>
    
   </ion-card>
   <ion-button color="light"  size="full" (click)="register()">Register</ion-button>
-
+</form>
 </ion-content>

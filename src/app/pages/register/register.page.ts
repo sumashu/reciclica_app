@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterPageForm } from './form/register.page.form';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +10,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private router:Router) { }
+  registerFrom:RegisterPageForm;
+
+  constructor(private router:Router, private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    this.createForm();
   }
   register(){
-    this.router.navigate(['/home'])
+    this.registerFrom.getForm().markAllAsTouched();
+    if(this.registerFrom.getForm().valid){
+      this.router.navigate(['/home'])
+    }
+    
+  }
+
+  private createForm(){
+    this.registerFrom = new RegisterPageForm(this.formBuilder);
   }
 }
