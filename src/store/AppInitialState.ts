@@ -1,4 +1,5 @@
 import { AppState } from "./AppState";
+import { register } from "./register/register.actions";
 
 export const AppInitialState: AppState = {
     loading:{
@@ -11,5 +12,12 @@ export const AppInitialState: AppState = {
         isRecoveredPassword:false,
         isRecoveringPassword:false,
         
+    },
+    register:{
+       error:null,
+       isRegistered:false,
+       isRegistering:false
+
+
     }
 }
